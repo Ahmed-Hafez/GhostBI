@@ -5,10 +5,11 @@
 #side-bar{
   height: 100vh;
   padding-top: 80px;
-  // position: fixed;
+  position: fixed;
   background: #191f26;
 }
 
 #dashboard{
   margin-top: 60px;
+  margin-inline-start: auto;
 }
