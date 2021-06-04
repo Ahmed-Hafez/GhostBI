@@ -30,3 +30,25 @@ a{
 .section-container{
   padding: 30px;
 }
+
+.card-theme{
+  background: #191f26;
+  border: none;
+  border-radius: 2px;
+}
+
+.card-heading-theme{
+  color: #eee;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.card-body-theme{
+  background: #494f56;
+}
+
+.cards{
+  display: flex;
+  flex-direction: column;
+}
+

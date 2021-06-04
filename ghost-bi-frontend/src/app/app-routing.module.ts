@@ -1,8 +1,8 @@
-import { SectionSalesComponent } from './components/section-sales/section-sales.component';
+import { SectionSalesComponent } from './components/sections/section-sales/section-sales.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SectionOrdersComponent } from './components/section-orders/section-orders.component';
-import { SectionHealthComponent } from './components/section-health/section-health.component';
+import { SectionOrdersComponent } from './components/sections/section-orders/section-orders.component';
+import { SectionHealthComponent } from './components/sections/section-health/section-health.component';
 
 
 const routes: Routes = [
