@@ -29,6 +29,9 @@ namespace ghost_bi_backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(opt => {
+                opt.AddPolicy("CorsPolicy", c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
             this.connectionString = Configuration["secretConnectionString"];
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -52,11 +55,9 @@ namespace ghost_bi_backend
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ghost_bi_backend v1"));
             }
 
-            app.UseHttpsRedirection();
+            app.UseCors("CorsPolicy");
 
             app.UseRouting();
-
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
