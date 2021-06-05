@@ -29,6 +29,8 @@ a{
 
 .section-container{
   padding: 30px;
+  max-width: 1550px;
+  margin: auto;
 }
 
 .card-theme{
@@ -52,3 +54,12 @@ a{
   flex-direction: column;
 }
 
+.btn{
+  outline: none;
+  border: none;
+  font-size: 1.25rem !important;
+  color: #fff;
+  &:focus{
+    box-shadow: none;
+  }
+}
