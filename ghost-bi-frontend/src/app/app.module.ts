@@ -13,6 +13,8 @@ import { LineChartComponent } from './components/charts/line-chart/line-chart.co
 import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
 import { ChartsModule } from 'ng2-charts';
 import { ServerComponent } from './components/server/server.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,10 +27,12 @@ import { ServerComponent } from './components/server/server.component';
     BarChartComponent,
     LineChartComponent,
     PieChartComponent,
-    ServerComponent
+    ServerComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ChartsModule
   ],
