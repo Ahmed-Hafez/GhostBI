@@ -17,12 +17,12 @@ export class ServerService {
       'Content-Type' : 'application/json',
       'Accept' : 'application/json'
     });
-
-    // this.options = new RequestOptions({ headers: this.headers });
   }
 
   getServers(): Observable<Server[]> {
-    return this.http.get<Server[]>('http://localhost:5000/api/server');
+    return this.http.get<Server[]>('http://localhost:5000/api/server').pipe(
+      catchError(this.handleError)
+    );
   }
 
   handleError(error: any) {
