@@ -54,9 +54,6 @@ namespace ghost_bi_backend.Controllers
         [HttpGet("bycustomer/{n}")]
         public IActionResult ByCustomer(int n)
         {
-            // enumerated group due to ef error
-            // https://github.com/aspnet/EntityFrameworkCore/issues/9551
-
             var orders = ctx.Orders.Include(o => o.Customer).ToList();
             var groupedResult = orders
                 .GroupBy(r => r.Customer.Id)

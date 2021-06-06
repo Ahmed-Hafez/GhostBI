@@ -7,3 +7,21 @@ table{
     background: #aaaaaa30;
   }
 }
+
+.order-status{
+  width: 60px;
+  height: 25px;
+  font-size: 0.875rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+
+  &.waiting{
+    background: #114198;
+  }
+  &.fulfilled{
+    background: #006d0d;
+  }
+}

@@ -18,7 +18,10 @@
         <td>{{ order.total }}</td>
         <td>{{ order.placed | date: 'short' }}</td>
         <td>{{ order.completed | date: 'short' }}</td>
-        <td>Status</td>
+        <td>
+          <div class="order-status fulfilled" *ngIf='order.completed'>Fulfilled</div>
+          <div class="order-status waiting" *ngIf='!order.completed'>Waiting</div>
+        </td>
       </tr>
     </tbody>
   </table>

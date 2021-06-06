@@ -20,4 +20,16 @@
 .btn-pageNumber {
   min-width: 54px;
   margin: 2px;
+  &:focus, &.active{
+    box-shadow: 0 0 0 0.25rem rgb(26 45 64);
+    color: #fff;
+  }
+}
+
+.btn-info{
+  background: #161a1e;
+  color: #fff;
+  &:focus{
+    box-shadow: none;
+  }
 }

@@ -26,7 +26,6 @@ namespace ghost_bi_backend
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(opt => {
@@ -34,10 +33,6 @@ namespace ghost_bi_backend
             });
             this.connectionString = Configuration["secretConnectionString"];
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ghost_bi_backend", Version = "v1" });
-            });
 
             services.AddEntityFrameworkNpgsql()
                     .AddDbContext<BiDbContext>(opt => opt.UseNpgsql(connectionString));
@@ -45,14 +40,11 @@ namespace ghost_bi_backend
             services.AddTransient<DataSeed>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataSeed seed)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ghost_bi_backend v1"));
             }
 
             app.UseCors("CorsPolicy");

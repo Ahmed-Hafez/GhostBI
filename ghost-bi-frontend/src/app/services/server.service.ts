@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { ServerMessage } from '../shared/server-message';
 import { Server } from '../shared/server';
+import { API_URL } from '../shared/api.variables'
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class ServerService {
   }
 
   getServers(): Observable<Server[]> {
-    return this.http.get<Server[]>('http://localhost:5000/api/server').pipe(
+    return this.http.get<Server[]>(API_URL + 'server').pipe(
       catchError(this.handleError)
     );
   }
@@ -34,7 +35,7 @@ export class ServerService {
   }
 
   handleServerMessage(msg: ServerMessage): Observable<Response> {
-    const url = 'http://localhost:5000/api/server/' + msg.id;
+    const url = API_URL + 'server/' + msg.id;
     return this.http.put<Response>(url, msg, {
       headers: this.headers
     });
